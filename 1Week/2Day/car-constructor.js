@@ -1,4 +1,5 @@
 class Car{
+    
     constructor(engine, airbags, topSpeed, doors){
         this.airbags = airbags
         this.engine = engine
@@ -7,6 +8,8 @@ class Car{
         this.safetyRating = 0
     }
     
+    airbags;
+
     run(){
         console.log("I am driving real fast");
     }
