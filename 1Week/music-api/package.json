@@ -1,0 +1,20 @@
+{
+  "name": "music-api",
+  "version": "1.0.0",
+  "description": "a basic api for doing music things",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "1905JavaReact",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.16.1",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
