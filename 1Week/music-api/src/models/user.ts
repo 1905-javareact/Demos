@@ -7,11 +7,11 @@ export class User {
     password:string
     favoriteArtist: Artist
     id:number
-    constructor(username:string, password:string, favA:Artist, id: number){
+    constructor(username:string = '', password:string = '', favA:Artist = null, id?:number){
         this.username = username
         this.password = password
         this.favoriteArtist = favA
-        this.id = id
+        this.id = id || 0
     }
 }
 
