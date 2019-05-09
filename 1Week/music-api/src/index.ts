@@ -3,6 +3,7 @@ import express from 'express'
 import { loggingMiddleware } from './middleware/logging';
 import bodyParser from 'body-parser'
 import { artistRouter } from './routers/artist-router';
+import { userRouter } from './routers/user-router';
 
 
 
@@ -40,6 +41,8 @@ app.get('/', (req, res)=>{
 //provide the base path
 //and the express router variable we made in the router file
 app.use('/artists', artistRouter)
+
+app.use('/users', userRouter)
 
 
 app.listen(9050, ()=>{
