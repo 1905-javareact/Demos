@@ -33,6 +33,7 @@ export let users:User[] = [
                 'Led Zepplin II'
             ]
         },
-        id: 1
-    }, new User('eli1', 'password', artists[1], 2 )
+        id: 1,
+        roles:['admin']
+    }, new User('eli1', 'password', artists[1], 2 , ['partner'])
 ]

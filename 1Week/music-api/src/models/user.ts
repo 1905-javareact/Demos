@@ -7,11 +7,13 @@ export class User {
     password:string
     favoriteArtist: Artist
     id:number
-    constructor(username:string = '', password:string = '', favA:Artist = null, id?:number){
+    roles:string[]
+    constructor(username:string = '', password:string = '', favA:Artist = null, id?:number, roles?:string[]){
         this.username = username
         this.password = password
         this.favoriteArtist = favA
         this.id = id || 0
+        this.roles = roles || []
     }
 }
 
