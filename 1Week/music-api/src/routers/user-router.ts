@@ -16,6 +16,7 @@ userRouter.get('',[authorization(['admin']),(req, res)=>{
     res.json(users)
 }])
 
+
 //An endpoint to add a new user to the users state
 //we should verify that the fields they send us are correct
 //also that they are all there
@@ -74,6 +75,9 @@ userRouter.post('/login', (req, res)=>{
 })
 
 //updateding a user
+//we amalgamated find user by id and post a new user
+
+//express make a variable in req.params called id with the value from the url
 userRouter.patch('/:id', [authorization(['admin']), (req, res) =>{
     let id = +req.params.id
     let user = users.find((u) =>{ 
