@@ -25,3 +25,13 @@ export function authorization(authRoles:string[]){
 
     }
 }
+
+
+function adminAuth(req,res,next) {
+
+    if(req.session.user && req.session.user.roles.includes('admin')){
+        next()
+    }else{
+        res.sendStatus(403)
+    }
+}
