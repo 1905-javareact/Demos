@@ -54,3 +54,17 @@ userRouter.get('/:id', (req, res)=>{
         res.sendStatus(400)
     }
 })
+
+//lets make a login endpoint
+userRouter.post('/login', (req, res)=>{
+    const {username, password} = req.body
+    const user = users.find(u => u.username === username && u.password === password)
+
+    if(user){
+        req.session.user = user
+        res.send(req.session)// don't send them the session
+        //we send them their user object
+    } else{
+        res.sendStatus(401)
+    }
+})

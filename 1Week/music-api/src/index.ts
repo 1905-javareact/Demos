@@ -1,9 +1,10 @@
 import express from 'express'
 
-import { loggingMiddleware } from './middleware/logging';
+import { loggingMiddleware } from './middleware/logging.middleware';
 import bodyParser from 'body-parser'
 import { artistRouter } from './routers/artist-router';
 import { userRouter } from './routers/user-router';
+import { sessionMiddleware } from './middleware/session.middleware';
 
 
 
@@ -31,7 +32,10 @@ app.use(loggingMiddleware)
 //a piece of middleware
 //will take json attached to http body
 //and turn it into a real js object for us to use
-app.use(bodyParser.json())
+app.use(bodyParser.json())// change formats for here for request data type
+
+app.use(sessionMiddleware)
+
 
 app.get('/', (req, res)=>{
     res.json('Try making a request to /artists')

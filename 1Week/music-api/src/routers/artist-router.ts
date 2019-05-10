@@ -1,5 +1,5 @@
 import express from 'express'
-import { loggingMiddleware } from '../middleware/logging';
+import { loggingMiddleware } from '../middleware/logging.middleware';
 import { artists } from '../state';
 
 
