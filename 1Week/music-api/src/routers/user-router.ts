@@ -2,7 +2,7 @@ import express from 'express'
 import { users } from '../state';
 import { User } from '../models/user';
 import { authorization } from '../middleware/auth.middleware';
-import { getAllUsersService } from '../service/users.service';
+import { getAllUsersService, findUserByIdService, findUserByUsernameAndPasswordService } from '../service/users.service';
 
 
 
@@ -49,29 +49,30 @@ userRouter.post('', [authorization(['admin', 'partner']),(req, res)=>{
 // '/users/username/:username
 // '/users/favoriteartist/artistname/:name
 
-userRouter.get('/:id', (req, res)=>{
+userRouter.get('/:id', async (req, res)=>{
     let id = +req.params.id//id is string by default, adding the + turns to int
-    let user = users.find((u) =>{ 
-        return u.id === id
-    })
-    if(user){
-        res.json(user)
-    } else {
+    if(isNaN(id)){
         res.sendStatus(400)
+    }else {
+        let user = await findUserByIdService(id)
+        if(user){
+            res.json(user)
+         } else {
+            res.sendStatus(400)
+        }
     }
 })
 
 //lets make a login endpoint
-userRouter.post('/login', (req, res)=>{
+userRouter.post('/login', async (req, res)=>{
     const {username, password} = req.body
-    const user = users.find(u => u.username === username && u.password === password)
+    let user = await findUserByUsernameAndPasswordService(req, username, password)
 
-    if(user){
-        req.session.user = user
-        res.send(req.session)// don't send them the session
-        //we send them their user object
-    } else{
+    if(typeof(user) === 'string'){
         res.sendStatus(401)
+    } else{
+        res.send(JSON.stringify(user))// don't send them the session
+        //we send them their user object
     }
 })
 
