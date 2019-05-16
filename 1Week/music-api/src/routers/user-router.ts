@@ -2,6 +2,7 @@ import express from 'express'
 import { users } from '../state';
 import { User } from '../models/user';
 import { authorization } from '../middleware/auth.middleware';
+import { getAllUsersService } from '../service/users.service';
 
 
 
@@ -13,7 +14,7 @@ export const userRouter = express.Router()
 
 //get methods of the base path should give all information
 userRouter.get('',[authorization(['admin']),(req, res)=>{
-    res.json(users)
+    res.json(getAllUsersService())
 }])
 
 
