@@ -26,12 +26,12 @@ export function authorization(authRoles:string[]){
     }
 }
 
+//this is the slow bad way to do it
+// function adminAuth(req,res,next) {
 
-function adminAuth(req,res,next) {
-
-    if(req.session.user && req.session.user.roles.includes('admin')){
-        next()
-    }else{
-        res.sendStatus(403)
-    }
-}
+//     if(req.session.user && req.session.user.roles.includes('admin')){
+//         next()
+//     }else{
+//         res.sendStatus(403)
+//     }
+// }

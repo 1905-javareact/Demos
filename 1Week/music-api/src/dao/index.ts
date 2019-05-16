@@ -16,7 +16,7 @@ console.log({
 
 
 //use environment variables
-export const connectionPool = new Pool({
+export const connectionPool:Pool = new Pool({
     user: process.env['MUSIC_API_USERNAME'],
     host: process.env['MUSIC_API_HOST'],
     database: process.env['MUSIC_API_DB_NAME'],

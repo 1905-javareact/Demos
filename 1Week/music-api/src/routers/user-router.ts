@@ -13,8 +13,8 @@ export const userRouter = express.Router()
 //userRouter.use(authorization(['admin']))
 
 //get methods of the base path should give all information
-userRouter.get('',[authorization(['admin']),(req, res)=>{
-    res.json(getAllUsersService())
+userRouter.get('',[authorization(['admin']), async (req, res)=>{
+    res.json( await getAllUsersService())
 }])
 
 
