@@ -1,0 +1,13 @@
+table {
+    border:1em solid rgb(40, 33, 100);
+    margin:5em;
+}
+
+#artist-table tr:hover{
+    height:100%;
+    width:50%;
+    padding: 4em;
+    -webkit-box-shadow: inset 0px 0px 10px 3px yellow;
+    -moz-box-shadow: inset 0px 0px 10px 3px yellow;
+    box-shadow: inset 0px 0px 10px 3px yellow;
+}
