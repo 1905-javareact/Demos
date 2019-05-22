@@ -5,6 +5,7 @@ import bodyParser from 'body-parser'
 import { artistRouter } from './routers/artist-router';
 import { userRouter } from './routers/user-router';
 import { sessionMiddleware } from './middleware/session.middleware';
+import { corsFilter } from './middleware/cors-filter.middleware';
 
 
 
@@ -35,7 +36,8 @@ app.use(loggingMiddleware)
 app.use(bodyParser.json())// change formats for here for request data type
 
 app.use(sessionMiddleware)
-
+//this is so the browser can actually send us requests
+app.use(corsFilter)
 
 app.get('/', (req, res)=>{
     res.json('Try making a request to /artists')
