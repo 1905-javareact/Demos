@@ -9,6 +9,13 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { SecondComponent } from './components/secondcomponent/second.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ArtistComponent } from './components/artistcomponent/artist.component';
+import { FirstComponent } from './components/firstcomponent/first.component';
+import { ClickerComponent } from './components/clicker/clicker.component';
+import { MoviesComponent } from './components/movies/movies.component';
+import { NestedComponent } from './components/nested/nested.component';
+import { PokemonComponent } from './components/pokemon/pokemon.component';
+import { ChuckNorrisComponent } from './components/chucknorris/chucknorris.component';
+import { TicTacToeComponent } from './components/tic-tac-toe/tic-tac-toe.component';
 
 
 //we can make components in two ways
@@ -23,7 +30,15 @@ const App: React.FC = () => {
       <Switch>
         <Route path='/login' component={SignInComponent}/>
         <Route path='/home' component={SecondComponent}/>
+        <Route path='/second' component={SecondComponent}/>
         <Route path='/artists' component={ArtistComponent}/>
+        <Route path='/first' component={FirstComponent}/>
+        <Route path='/clicker' component={ClickerComponent}/>
+        <Route path='/movies' component={MoviesComponent}/>
+        <Route path='/nested' component={NestedComponent}/>
+        <Route path='/pokemon' component={PokemonComponent}/>
+        <Route path='/chuck-norris' component={ChuckNorrisComponent}/>
+        <Route path='/tic-tac-toe' component={TicTacToeComponent}/>
       </Switch>
     </div>
     </BrowserRouter>
