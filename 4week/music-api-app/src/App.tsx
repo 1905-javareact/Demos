@@ -7,6 +7,8 @@ import './App.css';
 import { SignInComponent } from './components/signin/signin.component';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { SecondComponent } from './components/secondcomponent/second.component';
+import { NavComponent } from './components/nav/nav.component';
+import { ArtistComponent } from './components/artistcomponent/artist.component';
 
 
 //we can make components in two ways
@@ -15,10 +17,13 @@ import { SecondComponent } from './components/secondcomponent/second.component';
 const App: React.FC = () => {
   return (
     <BrowserRouter>
+    
     <div className="App">
+    <NavComponent/>
       <Switch>
         <Route path='/login' component={SignInComponent}/>
-        <Route path='/sc' component={SecondComponent}/>
+        <Route path='/home' component={SecondComponent}/>
+        <Route path='/artists' component={ArtistComponent}/>
       </Switch>
     </div>
     </BrowserRouter>
