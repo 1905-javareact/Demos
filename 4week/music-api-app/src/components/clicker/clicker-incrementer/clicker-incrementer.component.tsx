@@ -6,7 +6,6 @@ interface IIncrementerProps{
 }
 
 export class ClickerIncrementerComponent extends React.PureComponent<IIncrementerProps>{
-
     constructor(props){
         super(props)
     }
