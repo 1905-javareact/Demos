@@ -39,7 +39,7 @@ const App: React.FC = () => {
         <Route path='/pokemon' component={PokemonComponent}/>
         <Route path='/chuck-norris' component={ChuckNorrisComponent}/>
         <Route path='/tic-tac-toe' component={TicTacToeComponent}/>
-        {/* <Route path='/users' component={UserComponent}/> */}
+        {/* <Route path='/users' component={UserComponent}/>  for testing*/}
       </Switch>
     </div>
     </BrowserRouter>
