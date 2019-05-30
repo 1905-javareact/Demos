@@ -37,7 +37,9 @@ const App: React.FC = () => {
         <Route path='/movies' component={MoviesComponent}/>
         <Route path='/nested' component={NestedComponent}/>
         <Route path='/pokemon' component={PokemonComponent}/>
-        <Route path='/chuck-norris' component={ChuckNorrisComponent}/>
+        {/*             we use render instead of component to give props in a route  */}
+        {/* This is an example of a higher order component That is a component that wraps around another one and adds some functionality */}
+        <Route path='/chuck-norris' render={(props)=><ChuckNorrisComponent {...props} maxJokes={10}/>}/>
         <Route path='/tic-tac-toe' component={TicTacToeComponent}/>
         {/* <Route path='/users' component={UserComponent}/>  for testing*/}
       </Switch>
