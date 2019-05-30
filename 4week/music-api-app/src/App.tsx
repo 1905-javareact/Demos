@@ -11,7 +11,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { ArtistComponent } from './components/artistcomponent/artist.component';
 import { FirstComponent } from './components/firstcomponent/first.component';
 import { ClickerComponent } from './components/clicker/clicker.component';
-import { MoviesComponent } from './components/movies/movies.component';
+//import { MoviesComponent } from './components/movies/movies.component';
 import { NestedComponent } from './components/nested/nested.component';
 import { PokemonComponent } from './components/pokemon/pokemon.component';
 import { ChuckNorrisComponent } from './components/chucknorris/chucknorris.component';
@@ -34,7 +34,7 @@ const App: React.FC = () => {
         <Route path='/artists' component={ArtistComponent}/>
         <Route path='/first' component={FirstComponent}/>
         <Route path='/clicker' component={ClickerComponent}/>
-        <Route path='/movies' component={MoviesComponent}/>
+        {/* <Route path='/movies' component={MoviesComponent}/> */}
         <Route path='/nested' component={NestedComponent}/>
         <Route path='/pokemon' component={PokemonComponent}/>
         {/*             we use render instead of component to give props in a route  */}

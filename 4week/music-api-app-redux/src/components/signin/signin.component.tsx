@@ -1,18 +1,28 @@
 import React from 'react'
+import { User } from '../../models/user';
+import { RouteComponentProps } from 'react-router';
+import { connect } from 'react-redux';
+import { IState } from '../../reducers';
+import { login } from '../../actions/login.actions';
 
 interface ISignInState {
     username: string
     password: string
-    errorMessage: string
 }
 
-export class SignInComponent extends React.Component<any, ISignInState>{//first is props second is state
+interface ISignInProps extends RouteComponentProps{
+    currentUser: User
+    errorMessage: string
+    login: (username:string, password:string, history)=>void
+}
+
+
+export class SignInComponent extends React.Component<ISignInProps, ISignInState>{//first is props second is state
     constructor(props){
         super(props);
         this.state = {
             username: '',
             password: '',
-            errorMessage: ''
         }
     }
 
@@ -32,44 +42,9 @@ export class SignInComponent extends React.Component<any, ISignInState>{//first 
 
     
 
-    login = async (event)=>{
+    loginSubmit = (event) =>{
         event.preventDefault()
-        console.log('trying to login')
-        const username = this.state.username
-        const password = this.state.password
-    
-        const credentials = {
-            username,
-            password
-        }
-    
-        try{
-    
-            const response = await fetch('http://localhost:9050/users/login', {
-                method: 'POST',
-                credentials: 'include',
-                body: JSON.stringify(credentials),
-                headers:{
-                    'content-type': 'application/json'
-                }
-            })
-    
-            console.log(response);
-    
-            if(response.status === 401){
-                this.setState({
-                    errorMessage:'Invalid Credentials'
-                })
-            } else if( response.status === 200){
-                //const user = await response.json()
-                this.props.history.push('/nested')
-                
-            } else {
-                document.getElementById('error-message').innerText = 'You Can\'t login right now'
-            }        
-        } catch(err){
-            console.log(err);        
-        }
+        this.props.login(this.state.username, this.state.password, this.props.history)
     }
 
     componentDidMount(){
@@ -78,7 +53,7 @@ export class SignInComponent extends React.Component<any, ISignInState>{//first 
 
     render(){
         return (
-            <form className="form-signin text-center" onSubmit={this.login}>
+            <form className="form-signin text-center" onSubmit={this.loginSubmit}>
                 <img className="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"/>
                 <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
                 <label htmlFor="inputUsername" className="sr-only">Username</label>
@@ -90,10 +65,25 @@ export class SignInComponent extends React.Component<any, ISignInState>{//first 
                     <input type="checkbox" value="remember-me"/> Remember me
                     </label>
                 </div>
-                <p>{this.state.errorMessage}</p>
+                <p>{this.props.errorMessage}</p>
                 <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                 <p className="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
             </form>
         )
     }
 }
+//this is the state that this component will care about and have access to
+const mapStateToProps = (state:IState) =>{
+    return {
+        currentUser: state.login.currentUser,
+        errorMessage: state.login.errorMessage
+    }
+}
+//this is the actions that will be availible to the component
+const mapDispatchToProps = {
+    login : login
+}
+
+
+//this will make a higher order component
+export default connect(mapStateToProps, mapDispatchToProps)(SignInComponent)
