@@ -86,4 +86,5 @@ const mapDispatchToProps = {
 
 
 //this will make a higher order component
+//this is what we will use whenver we want to make a new signin component
 export default connect(mapStateToProps, mapDispatchToProps)(SignInComponent)
