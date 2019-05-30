@@ -10,7 +10,7 @@ import { SecondComponent } from './components/secondcomponent/second.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ArtistComponent } from './components/artistcomponent/artist.component';
 import { FirstComponent } from './components/firstcomponent/first.component';
-import { ClickerComponent } from './components/clicker/clicker.component';
+import  ClickerComponent  from './components/clicker/clicker.component';
 //import { MoviesComponent } from './components/movies/movies.component';
 import { NestedComponent } from './components/nested/nested.component';
 import { PokemonComponent } from './components/pokemon/pokemon.component';
