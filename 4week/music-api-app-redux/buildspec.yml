@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 8
+    commands:
+      - cd 4week/music-api-app-redux
+      - npm install
+  build:
+    commands:
+      - npm run-script build
+artifacts:
+  files:
+    - '**/*'
+  base-directory: '4week/music-api-app-redux/build'
