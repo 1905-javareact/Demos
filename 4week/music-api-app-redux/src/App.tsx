@@ -15,7 +15,7 @@ import  ClickerComponent  from './components/clicker/clicker.component';
 import { NestedComponent } from './components/nested/nested.component';
 import { PokemonComponent } from './components/pokemon/pokemon.component';
 import  ChuckNorrisComponent  from './components/chucknorris/chucknorris.container';
-import { TicTacToeComponent } from './components/tic-tac-toe/tic-tac-toe.component';
+import  TicTacToeComponent  from './components/tic-tac-toe/tic-tac-toe.component';
 import { Provider } from 'react-redux';
 import { store } from './Store';
 

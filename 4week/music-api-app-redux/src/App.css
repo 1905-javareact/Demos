@@ -31,3 +31,10 @@
     transform: rotate(360deg);
   }
 }
+
+.tic-tac-toe {
+  height: 10vh;
+  width: 10vw;
+  border: solid 3px black;
+  color: black
+}
