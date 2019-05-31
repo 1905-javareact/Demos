@@ -1,41 +1,35 @@
 import React, { Component } from 'react';
 
-interface IChuckNorrisState{
-    joke:string
-    maxJokes
-}
+
+
 interface IChuckNorrisProps{
-    maxJokes:number
+    currentJoke:string
+    clicks: number
+    buyingJoke: boolean
+    buyJoke: () => void
+    //incrementClicks: (inc:number) => void
 }
 
-export class ChuckNorrisComponent extends Component<IChuckNorrisProps, IChuckNorrisState> {
+export class ChuckNorrisComponent extends Component<IChuckNorrisProps, any> {
     //1 in the lifecycle on the first mount we call constructor
-    constructor(props){
-        super(props)
-        this.state = {
-            joke: '',
-            maxJokes: this.props.maxJokes
-        }
-        //change the this of the function to being the this of the class
-        this.getChuckNorrisJokes = this.getChuckNorrisJokes.bind(this)
-    }
+    // constructor(props){
+    //     super(props)
+    //     this.state = {
+    //         joke: '',
+    //         maxJokes: this.props.maxJokes
+    //     }
+    //     //change the this of the function to being the this of the class
+    //     this.getChuckNorrisJokes = this.getChuckNorrisJokes.bind(this)
+    // }
 
 //2 to start an update either state has to change which mean setState
 // or props of the component have to change
 //or we call forceUpdate
 
 
-    async getChuckNorrisJokes () {
-        if(this.state.maxJokes > 0){
-            const response = await fetch('http://api.icndb.com/jokes/random?limitTo=[nerdy]')
-            console.log(response);
-    
-            const resBody = await response.json()
-            this.setState({
-                joke:resBody.value.joke,
-                maxJokes: this.state.maxJokes-1
-            })
-        }
+    buttonClick = () => {
+        //this.props.incrementClicks(-100)
+        this.props.buyJoke()
         
     }
 
@@ -44,13 +38,18 @@ export class ChuckNorrisComponent extends Component<IChuckNorrisProps, IChuckNor
 //1 then we call render
 //2 we call a render
     render() {
-        this.getChuckNorrisJokes() //don't set state in render or in did update
+         //don't set state in render or in did update
         //because this will trigger another update making an infinte loop
-        const {joke} = this.state
+        const {currentJoke, clicks} = this.props
         return (
             <div>
-                <p>{joke || 'Waiting on a joke, what a joke'}</p>
-                <button className='btn btn-danger' onClick={this.getChuckNorrisJokes}>Get Joke</button>
+                <p>{currentJoke}</p>
+                <p>
+                    {`Clicks: ${clicks}`}
+                </p>
+                <button className='btn btn-danger' 
+                disabled = {this.props.buyingJoke || clicks < 100}
+                onClick={this.buttonClick}>Get Joke</button>
             </div>
 
         );
@@ -59,11 +58,11 @@ export class ChuckNorrisComponent extends Component<IChuckNorrisProps, IChuckNor
 //2 then react modifies the virtual dom
 
 //1 then we call component didmount
-    componentDidMount(){
-        //we just loaded this component
-        //lets go get a joke so we don;t have to use the placeholder text
-        this.getChuckNorrisJokes()
-    }
+    // componentDidMount(){
+    //     //we just loaded this component
+    //     //lets go get a joke so we don;t have to use the placeholder text
+    //     this.getChuckNorrisJokes()
+    // }
     
 //2 then we call component did update
     componentDidUpdate(){

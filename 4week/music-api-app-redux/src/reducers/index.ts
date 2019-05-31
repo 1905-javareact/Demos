@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import { User } from "../models/user";
 import { loginReducer } from "./login.reducer";
 import { clickerReducer } from "./clicker.reducer";
+import { chuckNorrisReducer } from "./chuck-norris.reducer";
 //this is where we will define all of the types for our global state
 //we will do this by making different kinds of interfaces to represent different parts of state
 //generally these interfaces will be linked to a component
@@ -18,6 +19,7 @@ export interface IClickerState{
 
 export interface IChuckNorrisState{
     currentJoke:string
+    buyingJoke: boolean
 }
 
 //this is an interface that represents all of the state we are keeping track of
@@ -25,7 +27,7 @@ export interface IChuckNorrisState{
 export interface IState{
     login:ILoginState
     clicker:IClickerState
-    // chuckNorris: IChuckNorrisState
+    chuckNorris: IChuckNorrisState
 
 }
 
@@ -35,5 +37,5 @@ export interface IState{
 export const state = combineReducers<IState>({
     login: loginReducer,
     clicker: clickerReducer,
-    // chuckNorris: chuckNorrisReducer
+    chuckNorris: chuckNorrisReducer
 })

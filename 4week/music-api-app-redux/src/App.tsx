@@ -14,7 +14,7 @@ import  ClickerComponent  from './components/clicker/clicker.component';
 //import { MoviesComponent } from './components/movies/movies.component';
 import { NestedComponent } from './components/nested/nested.component';
 import { PokemonComponent } from './components/pokemon/pokemon.component';
-import { ChuckNorrisComponent } from './components/chucknorris/chucknorris.component';
+import  ChuckNorrisComponent  from './components/chucknorris/chucknorris.container';
 import { TicTacToeComponent } from './components/tic-tac-toe/tic-tac-toe.component';
 import { Provider } from 'react-redux';
 import { store } from './Store';
@@ -42,7 +42,7 @@ const App: React.FC = () => {
           <Route path='/pokemon' component={PokemonComponent}/>
           {/*             we use render instead of component to give props in a route  */}
           {/* This is an example of a higher order component That is a component that wraps around another one and adds some functionality */}
-          <Route path='/chuck-norris' render={(props)=><ChuckNorrisComponent {...props} maxJokes={10}/>}/>
+          <Route path='/chuck-norris' component={ChuckNorrisComponent}/>
           <Route path='/tic-tac-toe' component={TicTacToeComponent}/>
           {/* <Route path='/users' component={UserComponent}/>  for testing*/}
         </Switch>

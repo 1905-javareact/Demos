@@ -20,6 +20,9 @@ export class NavComponent extends React.Component {
               <Link to="/home" className="unset-anchor nav-link">Home</Link>
             </li>
             <li className="nav-item active">
+              <Link to="/home" className="unset-anchor nav-link">Home</Link>
+            </li>
+            <li className="nav-item active">
               <Link to="/login" className="unset-anchor nav-link">Sign In</Link>
             </li>
             <li className="nav-item active">
