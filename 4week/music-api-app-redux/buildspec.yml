@@ -5,6 +5,7 @@ phases:
     runtime-versions:
       nodejs: 8
     commands:
+      - cd 4week/music-api-app-redux
       - npm install
   build:
     commands:
