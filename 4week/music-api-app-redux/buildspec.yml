@@ -12,4 +12,4 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: 'dist/angular-redux-demo'
+  base-directory: '4week/music-api-app-redux/build'
