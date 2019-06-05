@@ -1,9 +1,15 @@
 package com.revature.primitives;
 
+import com.revature.objects.Artist;
+
 public class PrimitiveLauncher {
 
 	
 	public static void main(String[] args) {
+		
+		//import example
+		//Artist
+		
 		byte b = 127;
 		
 		System.out.println("b= " + b);//our strings must be in double quotes
