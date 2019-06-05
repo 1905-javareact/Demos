@@ -1,6 +1,8 @@
 package com.revature.objects;
 
-public class Artist {
+import com.revature.abstracts.Sellable;
+
+public class Artist  implements Sellable, Cloneable{
 	String name;//null
 	
 	int artistId;//0
@@ -21,6 +23,24 @@ public class Artist {
 		this.numberOfMembers = numberOfMembers;
 		this.genre = genre;
 	}
+	
+	public Object clone() {
+		try {
+			return super.clone();
+		} catch (CloneNotSupportedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
 
 	@Override
 	public String toString() {
@@ -34,6 +54,12 @@ public class Artist {
 	
 	public String getGenre() {
 		return this.genre;
+	}
+
+	@Override
+	public String sell(String name) {
+		
+		return "Artist " + name + " is selling records" ;
 	}
 
 }
