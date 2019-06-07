@@ -58,6 +58,8 @@ public class CollectionsLauncher {
 		
 		System.out.println(javaReactFoods);
 		
+		//this is probably the premier use of lambdas 
+		//one abstract method is a functional interface
 		javaReactFoods.sort((f1, f2)->{
 			return f1.cals - f2.cals;
 		});
