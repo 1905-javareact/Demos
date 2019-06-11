@@ -1,5 +1,6 @@
 package com.revature.threads;
 
-public interface GenericDemo {
+public interface GenericDemo<T> {
+	public T doSomething(T object1);
 
 }

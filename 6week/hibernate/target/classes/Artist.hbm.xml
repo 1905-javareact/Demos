@@ -1,0 +1,20 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD 3.0/EN"
+		"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.revature.models">
+	<class name="Artist" table="artist">
+	
+		<!--  Primary Key -->
+		<id name="artistId" type="int" column="artist_id">
+			<generator class="native"/>
+		</id>
+		
+		<property name="name" type="string">
+			<column name="name" not-null="true" unique="true"/>
+		</property>
+		<property name="numberOfMembers" column="number_of_members" type="int"/>
+		<property name="genre" column="genre" type="string"/>
+	
+	
+	</class>
+</hibernate-mapping>

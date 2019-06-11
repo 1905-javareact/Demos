@@ -1,0 +1,30 @@
+<!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="show_sql">true</property>
+		<property name="hibernate.connection.pool_size">5</property>
+		<property name="hibernate.connection.username">Abatson</property>
+		<property name="hibernate.connection.password">Password1!</property>
+		<!-- This is a comment in xml -->
+		<!-- This url is the jdbc url. We need the first part, then we give the host:port/dbName -->
+		<property name="hibernate.connection.url">jdbc:postgresql://javareact1905.crwfjzfwavie.us-east-2.rds.amazonaws.com:5432/javareact1905</property>
+		<property name="hibernate.default.schema">public</property>
+	
+		<!--  We need to specify our object mappings in the config .xml -->
+		<!--  However I decide to map an object to a table, I will need to tell hibernate about it here -->
+		
+		
+		<!-- 
+			CREATE  drop all existing tables and then hibernate will recreate them all
+			VALIDATE hibernate will make sure the schema is what it is expected to be
+			UPDATE  hibernate won;t delete anything in the db but it will add new things to tables
+			NONE hibernate will not do anything automatically
+		 -->
+		
+		<property name="hibernate.hbm2ddl.auto">create</property>
+		<mapping resource="Artist.hbm.xml"/>
+	
+	</session-factory>
+</hibernate-configuration>
