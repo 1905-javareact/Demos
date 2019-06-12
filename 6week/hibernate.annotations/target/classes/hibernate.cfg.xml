@@ -21,7 +21,7 @@
 			NONE hibernate will not do anything automatically
 		 -->
 		
-		<property name="hibernate.hbm2ddl.auto">create</property>
+		<property name="hibernate.hbm2ddl.auto">validate</property>
 		<mapping class="com.revature.models.School"/>
 		<mapping class="com.revature.models.EducationLevel"/>
 		<mapping class="com.revature.models.Student"/>

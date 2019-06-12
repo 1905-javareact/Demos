@@ -14,11 +14,13 @@ public class AnnotationLauncher {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		generateValues();
+		//generateValues();
 		System.out.println("we made some values");
 		System.out.println(schoolDao.getById(1));
 		
-
+		System.out.println(schoolDao.findByName("Armstrong"));
+		System.out.println(schoolDao.findByEducationLevelLevel("High"));
+		System.out.println(schoolDao.findByAddress("Rest%"));
 	}
 
 	
@@ -35,8 +37,17 @@ public class AnnotationLauncher {
 		
 		s.setStudents(new HashSet<Student>());
 		s.getStudents().add(robert);
-		
+		School s2 = new School();
+			s2.setAddress("Reston, Virgina");
+			s2.setFun(2);
+			s2.setName("Armstrong");
+			s2.setSchoolId(0);
+			s2.setStudents(new HashSet<Student>());
+			s2.getStudents().add(robert);
+		EducationLevel elementary = new EducationLevel(0, "Elementary");
+			s2.setLevel(elementary);
 		schoolDao.save(s);
+		schoolDao.save(s2);
 	}
 	
 }
