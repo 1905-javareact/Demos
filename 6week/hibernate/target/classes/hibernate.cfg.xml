@@ -5,8 +5,11 @@
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
 		<property name="show_sql">true</property>
 		<property name="hibernate.connection.pool_size">5</property>
+<<<<<<< HEAD
 		<property name="hibernate.connection.username">yourUsername</property>
 		<property name="hibernate.connection.password">yourPassword</property>
+=======
+>>>>>>> 7e1a7eabc8b3b90d6961a07a6fa5633861f39a71
 		<!-- This is a comment in xml -->
 		<!-- This url is the jdbc url. We need the first part, then we give the host:port/dbName -->
 		<property name="hibernate.connection.url">jdbc:postgresql://javareact1905.crwfjzfwavie.us-east-2.rds.amazonaws.com:5432/javareact1905</property>
