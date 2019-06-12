@@ -22,12 +22,6 @@ public class Student {
 	private int studentId;
 	
 	private String name;
-	
-	@ManyToMany
-	@JoinTable(name = "school_student", 
-	joinColumns = @JoinColumn(name = "student_id"), 
-	inverseJoinColumns = @JoinColumn(name = "school_id"))
-	private Set<School> schoolsAttended;
 
 	public int getStudentId() {
 		return studentId;
@@ -45,19 +39,10 @@ public class Student {
 		this.name = name;
 	}
 
-	public Set<School> getSchoolsAttended() {
-		return schoolsAttended;
-	}
-
-	public void setSchoolsAttended(Set<School> schoolsAttended) {
-		this.schoolsAttended = schoolsAttended;
-	}
-
-	public Student(int studentId, String name, Set<School> schoolsAttended) {
+	public Student(int studentId, String name) {
 		super();
 		this.studentId = studentId;
 		this.name = name;
-		this.schoolsAttended = schoolsAttended;
 	}
 
 	public Student() {
@@ -70,7 +55,6 @@ public class Student {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((schoolsAttended == null) ? 0 : schoolsAttended.hashCode());
 		result = prime * result + studentId;
 		return result;
 	}
@@ -89,11 +73,6 @@ public class Student {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (schoolsAttended == null) {
-			if (other.schoolsAttended != null)
-				return false;
-		} else if (!schoolsAttended.equals(other.schoolsAttended))
-			return false;
 		if (studentId != other.studentId)
 			return false;
 		return true;
@@ -101,9 +80,15 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [studentId=" + studentId + ", name=" + name + ", schoolsAttended=" + schoolsAttended + "]";
+		return "Student [studentId=" + studentId + ", name=" + name + "]";
 	}
 	
+//	@ManyToMany
+//	@JoinTable(name = "school_student", 
+//	joinColumns = @JoinColumn(name = "student_id"), 
+//	inverseJoinColumns = @JoinColumn(name = "school_id"))
+//	private Set<School> schoolsAttended;
+
 	
 	
 	

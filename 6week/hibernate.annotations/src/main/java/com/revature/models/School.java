@@ -2,6 +2,7 @@ package com.revature.models;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,13 +23,13 @@ public class School {
 	@Column(name = "school_id")
 	private int schoolId;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "school_student", 
 	joinColumns = @JoinColumn(name = "school_id"), 
 	inverseJoinColumns = @JoinColumn(name = "student_id"))
 	private Set<Student> students;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(referencedColumnName = "education_level_id")
 	private EducationLevel level;
 	
@@ -164,9 +165,11 @@ public class School {
 
 	@Override
 	public String toString() {
-		return "School [schoolId=" + schoolId + ", students=" + students + ", address=" + address + ", name=" + name
-				+ ", fun=" + fun + "]";
+		return "School [schoolId=" + schoolId + ", students=" + students + ", level=" + level + ", address=" + address
+				+ ", name=" + name + ", fun=" + fun + "]";
 	}
+
+
 	
 	
 	

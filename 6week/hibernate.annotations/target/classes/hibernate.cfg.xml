@@ -22,7 +22,9 @@
 		 -->
 		
 		<property name="hibernate.hbm2ddl.auto">create</property>
-		<mapping resource="Artist.hbm.xml"/>
+		<mapping class="com.revature.models.School"/>
+		<mapping class="com.revature.models.EducationLevel"/>
+		<mapping class="com.revature.models.Student"/>
 	
 	</session-factory>
 </hibernate-configuration>
