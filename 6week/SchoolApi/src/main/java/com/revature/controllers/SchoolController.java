@@ -57,4 +57,10 @@ public class SchoolController {
 		return schoolService.save(school);
 	}
 	//We can use ResponseEntity to do headers and status code and body or any combination thereof
+
+	@GetMapping("level/{level}")
+	public List<School> findByEducationLevel(@PathVariable String level){
+		return schoolService.findByEducationLevel(level);
+	}
+
 }

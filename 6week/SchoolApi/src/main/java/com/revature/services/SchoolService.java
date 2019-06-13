@@ -12,4 +12,6 @@ public interface SchoolService {
 	public List<School> findByName(String schoolName);
 	
 	public School save(School school);
+	
+	public List<School> findByEducationLevel(String level);
 }

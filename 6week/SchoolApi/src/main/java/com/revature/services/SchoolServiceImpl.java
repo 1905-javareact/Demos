@@ -39,4 +39,11 @@ public class SchoolServiceImpl implements SchoolService {
 		return schoolDao.save(school);
 	}
 
+
+	@Override
+	public List<School> findByEducationLevel(String level) {
+		// TODO Auto-generated method stub
+		return schoolDao.findByLevelLevel(level);
+	}
+
 }
