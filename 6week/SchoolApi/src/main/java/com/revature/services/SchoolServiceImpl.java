@@ -1,6 +1,7 @@
 package com.revature.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,17 @@ public class SchoolServiceImpl implements SchoolService {
 	@Autowired
 	public SchoolServiceImpl(SchoolDao s) {
 		this.schoolDao = s;
+	}
+	
+	public School findById(int id) {
+		Optional<School>res = schoolDao.findById(id);
+		
+		if(res.isPresent()) {
+			return res.get();
+		} else {
+			return null;
+		}
+				
 	}
 	
 	
@@ -43,6 +55,7 @@ public class SchoolServiceImpl implements SchoolService {
 	@Override
 	public List<School> findByEducationLevel(String level) {
 		// TODO Auto-generated method stub
+		
 		return schoolDao.findByLevelLevel(level);
 	}
 
