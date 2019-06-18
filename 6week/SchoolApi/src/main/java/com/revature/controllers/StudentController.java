@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.annotations.AuthAnn;
 import com.revature.models.Student;
 import com.revature.services.StudentService;
 
@@ -23,6 +24,7 @@ public class StudentController {
 		this.ss = s;
 	}
 	
+	@AuthAnn(roles = { "admin", "teacher" })
 	@GetMapping
 	public List<Student> findAll(){
 		return ss.findAll();
