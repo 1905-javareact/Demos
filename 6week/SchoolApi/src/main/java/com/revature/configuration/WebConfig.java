@@ -2,6 +2,7 @@ package com.revature.configuration;
 
 import java.util.List;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -18,6 +19,8 @@ import com.revature.util.DeepFieldFilter;
 @Configuration//springto find this for configuration
 @EnableWebMvc //to say it is config for webmvc specifically
 public class WebConfig implements WebMvcConfigurer {
+	
+	
 
 	//More configuration....
 

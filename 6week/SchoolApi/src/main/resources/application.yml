@@ -1,5 +1,6 @@
 server:
   port: 1234
+  
 
 spring:  application:    name: school-api
     
