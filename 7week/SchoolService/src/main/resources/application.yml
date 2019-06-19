@@ -1,0 +1,16 @@
+server:
+  port: 8082
+  
+spring:
+  application:
+    name: school-service
+    
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ec2-13-59-128-22.us-east-2.compute.amazonaws.com:8088/eureka
+      
+  instance:
+    lease-expiration-duration-in-seconds: 2
+    lease-renewal-interval-in-seconds: 1

@@ -19,5 +19,9 @@ zuul:
   routes:    users:
       path: /users/**
       service-id: user-service
+      strip-prefix: false
+    schools:
+      path: /school/**
+      service-id: school-service
       strip-prefix: false                
   
